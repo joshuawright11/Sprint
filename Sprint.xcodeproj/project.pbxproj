@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		032894021CE714A5004D231F /* Sprint.h in Headers */ = {isa = PBXBuildFile; fileRef = 032894011CE714A5004D231F /* Sprint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0328940A1CE714BE004D231F /* Sprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032894091CE714BE004D231F /* Sprint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		032893FE1CE714A4004D231F /* Sprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		032894011CE714A5004D231F /* Sprint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprint.h; sourceTree = "<group>"; };
 		032894031CE714A5004D231F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		032894091CE714BE004D231F /* Sprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sprint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				032894011CE714A5004D231F /* Sprint.h */,
 				032894031CE714A5004D231F /* Info.plist */,
+				032894091CE714BE004D231F /* Sprint.swift */,
 			);
 			path = Sprint;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0328940A1CE714BE004D231F /* Sprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +234,7 @@
 		032894071CE714A5004D231F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -240,12 +245,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshwright.Sprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		032894081CE714A5004D231F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
