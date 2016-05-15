@@ -1,4 +1,4 @@
-#
+
 #  Be sure to run `pod spec lint Sprint.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.ios.deployment_target = '8.0'
-  s.name         = "Sprint"
-  s.version      = "0.1.0"
+  s.name = "Sprint"
+  s.version = "0.1.0"
   s.license = { :type => "MIT", :file => "LICENSE" }
-  s.summary      = "Swift Grand Central Dispatch made easier."
+  s.summary = "Swift Grand Central Dispatch made easier."
   s.requires_arc = true
   s.author = { "Josh Wright" => "dev@jwright.io" }
 
@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
 
   s.source = { :git => "https://github.com/joshuawright11/Sprint.git", :tag => "#{s.version}"}
 
-  s.framework = "Foundation"
-  s.source_files = "Sprint/**/*.{swift}"
+  s.source_files = "Sprint/Sprint.swift"
 
 end
