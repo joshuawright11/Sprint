@@ -7,14 +7,6 @@
 #
 
 Pod::Spec.new do |s|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
   s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.name = "Sprint"
@@ -23,11 +15,7 @@ Pod::Spec.new do |s|
   s.summary = "Swift Grand Central Dispatch made easier."
   s.requires_arc = true
   s.author = { "Josh Wright" => "dev@jwright.io" }
-
   s.homepage = "https://github.com/joshuawright11/Sprint"
-
-  s.source = { :git => "https://github.com/joshuawright11/Sprint.git", :tag => "#{s.version}"}
-
+  s.source = { :git => "https://github.com/joshuawright11/Sprint.git", :tag => "#{s.verson}"}
   s.source_files = "Sprint/Sprint.swift"
-
 end
