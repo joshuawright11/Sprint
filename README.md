@@ -8,10 +8,13 @@ Sprint contains 3 types
 - `SprintQueue`: a `dispatch_queue_t` wrapper
 - `SprintGroup`: a `dispatch_group_t` wrapper
 
-## Installation
-ctrl+c, ctrl+p
+### Installation
 
-CocoaPods and Carthage soon?
+#### CocoaPods
+```ruby
+use_frameworks!
+pod "SprintSwift"
+```
 
 # Usage
 
