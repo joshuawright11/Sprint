@@ -9,13 +9,13 @@
 Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '8.0'
-  s.name = "Sprint"
+  s.name = "SprintSwift"
   s.version = "0.1.0"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.summary = "Swift Grand Central Dispatch made easier."
   s.requires_arc = true
   s.author = { "Josh Wright" => "dev@jwright.io" }
   s.homepage = "https://github.com/joshuawright11/Sprint"
-  s.source = { :git => "https://github.com/joshuawright11/Sprint.git", :tag => "#{s.verson}"}
-  s.source_files = "Sprint/Sprint.swift"
+  s.source = { :git => "https://github.com/joshuawright11/Sprint.git", :tag => s.version.to_s}
+  s.source_files = "Sprint/*"
 end

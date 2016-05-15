@@ -26,30 +26,35 @@ public enum SprintQueue {
     }
     
     public func barrierSync(block: dispatch_block_t) -> Sprint {
-        dispatch_barrier_sync(self.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_barrier_sync(self.dispatchQueue, sprint.block)
+        return sprint
     }
     
     public func barrierAsync(block: dispatch_block_t) -> Sprint {
-        dispatch_barrier_async(self.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_barrier_async(self.dispatchQueue, sprint.block)
+        return sprint
     }
     
     // run asynchronously
     public func async(block: dispatch_block_t) -> Sprint {
-        dispatch_async(self.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_async(self.dispatchQueue, sprint.block)
+        return sprint
     }
     
     // run synchronously
     public func sync(block: dispatch_block_t) -> Sprint {
-        dispatch_sync(self.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_sync(self.dispatchQueue, sprint.block)
+        return sprint
     }
     
     public func after(seconds: Double, block: dispatch_block_t) -> Sprint {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC))), self.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC))), self.dispatchQueue, sprint.block)
+        return sprint
     }
     
     public func apply(iterations: Int, block: Int -> ()) {
@@ -90,13 +95,15 @@ public struct SprintGroup {
     }
     
     func async(queue: SprintQueue, block: dispatch_block_t) -> Sprint {
-        dispatch_group_async(group, queue.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_group_async(group, queue.dispatchQueue, sprint.block)
+        return sprint
     }
     
     func finished(queue:SprintQueue, block: dispatch_block_t) -> Sprint {
-        dispatch_group_notify(group, queue.dispatchQueue, block)
-        return Sprint(block: block)
+        let sprint = Sprint(block: block)
+        dispatch_group_notify(group, queue.dispatchQueue, sprint.block)
+        return sprint
     }
     
     public func wait(timeout seconds: Double? = nil) -> Bool {
@@ -113,12 +120,14 @@ public struct Sprint {
     
     private let block: dispatch_block_t
     
-    init(block: dispatch_block_t) {
-        self.block = block
+    private init(block: dispatch_block_t) {
+        self.block = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, block)
     }
     
-    public func finished(queue: SprintQueue, block: dispatch_block_t) {
-        dispatch_block_notify(self.block, queue.dispatchQueue, block)
+    public func finished(queue: SprintQueue = .Main, block: dispatch_block_t) -> Sprint {
+        let sprint = Sprint(block: block)
+        dispatch_block_notify(self.block, queue.dispatchQueue, sprint.block)
+        return sprint
     }
     
     public func cancel() {
