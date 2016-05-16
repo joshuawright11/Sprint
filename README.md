@@ -85,12 +85,9 @@ Each method returns a `Sprint` which can then be cancelled (assuming it hasn't b
 let sprint = SprintQueue.Background.async {
 	// update cache
 }
-	
-if sprint.cancel() {
-	// the operation was successfully cancelled
-} else {
-	// cannot be cancelled; operation was already started
-}
+
+// the operation is cancelled, if it has not been started	
+sprint.cancel()
 ```
 
 ## Custom Queues
